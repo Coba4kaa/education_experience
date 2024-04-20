@@ -10,8 +10,12 @@ import java.util.stream.Collectors;
 
 @Component
 public class CatService {
-    @Autowired
     private ICatDao catDao;
+
+    @Autowired
+    public CatService(ICatDao catDao){
+        this.catDao = catDao;
+    }
 
     public void createCat(CatWrapper cat) {
         catDao.getCatRepository().save(cat.getCat());

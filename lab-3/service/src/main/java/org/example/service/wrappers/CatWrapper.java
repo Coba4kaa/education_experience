@@ -14,10 +14,10 @@ import java.util.List;
 @NoArgsConstructor
 @Scope(value = "prototype")
 public class CatWrapper {
-    @Autowired
     @JsonIgnore
     private Cat cat;
 
+    @Autowired
     public CatWrapper(Cat cat){
         this.cat = cat;
     }

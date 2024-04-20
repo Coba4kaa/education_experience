@@ -11,8 +11,12 @@ import java.util.stream.Collectors;
 
 @Component
 public class OwnerService {
-    @Autowired
     private IOwnerDao ownerDao;
+
+    @Autowired
+    public OwnerService(IOwnerDao ownerDao){
+        this.ownerDao = ownerDao;
+    }
 
     public void createOwner(OwnerWrapper owner) {
         ownerDao.getOwnerRepository().save(owner.getOwner());

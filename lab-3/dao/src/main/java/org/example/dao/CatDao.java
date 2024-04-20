@@ -17,8 +17,12 @@ public class CatDao implements ICatDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Autowired
     private CatRepository catRepository;
+
+    @Autowired
+    public CatDao(CatRepository catRepository){
+        this.catRepository = catRepository;
+    }
 
     @Transactional
     public List<Cat> getCatFriends(Long catId) {

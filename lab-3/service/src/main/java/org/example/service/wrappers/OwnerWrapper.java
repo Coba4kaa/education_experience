@@ -13,10 +13,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Scope(value = "prototype")
 public class OwnerWrapper {
-    @Autowired
     @JsonIgnore
     private Owner owner;
 
+    @Autowired
     public OwnerWrapper(Owner owner){
         this.owner = owner;
     }

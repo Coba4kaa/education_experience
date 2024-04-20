@@ -12,10 +12,14 @@ import org.springframework.stereotype.Component;
 @Getter
 @Component
 public class GeneralService implements IGeneralService {
-    @Autowired
     private CatService catService;
-    @Autowired
     private OwnerService ownerService;
+
+    @Autowired
+    public GeneralService(CatService catService, OwnerService ownerService){
+        this.catService = catService;
+        this.ownerService = ownerService;
+    }
 
     @Override
     public void createCat(CatWrapper cat) {

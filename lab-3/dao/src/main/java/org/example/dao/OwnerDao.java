@@ -18,8 +18,12 @@ public class OwnerDao implements IOwnerDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Autowired
     private OwnerRepository ownerRepository;
+
+    @Autowired
+    public OwnerDao(OwnerRepository ownerRepository){
+        this.ownerRepository = ownerRepository;
+    }
 
     @Transactional
     public List<Cat> getCatsByOwner(long ownerId) {

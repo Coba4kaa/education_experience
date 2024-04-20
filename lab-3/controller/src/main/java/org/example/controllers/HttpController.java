@@ -17,14 +17,16 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api")
 public class HttpController implements IController {
-    @Autowired
     private IGeneralService generalService;
-
-    @Autowired
     private ObjectMapper objectMapper;
+    private ApplicationContext context;
 
     @Autowired
-    private ApplicationContext context;
+    public HttpController(IGeneralService generalService, ObjectMapper objectMapper, ApplicationContext context){
+        this.generalService = generalService;
+        this.objectMapper = objectMapper;
+        this.context = context;
+    }
 
     @Override
     @PostMapping("/owners")
